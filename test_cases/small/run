@@ -1,0 +1,23 @@
+#!/bin/bash
+pushd ../../src/
+make
+popd
+echo "Running Search ..."
+run=10
+count=0
+valid_output=tamingshrew
+for ((f=1; f<=$run; f++)); do
+    SCRIPT_START_TIME=$(date +%s%N | cut -b1-13)
+    OUTPUT=$(../../src/Search reference library 1 6.85)
+    SCRIPT_END_TIME=$(date +%s%N | cut -b1-13)
+    SCRIPT_DURATION=$((SCRIPT_END_TIME-SCRIPT_START_TIME))
+    count=$[count+SCRIPT_DURATION]
+    value="${OUTPUT##*/}"
+    printf '  ['
+    printf '%08s' $SCRIPT_DURATION
+    printf ']  '
+    printf "[%02d]" $f
+    printf "  $value\n"
+done
+printf 'Average Time: '
+echo "$(($count/$run)) milliseconds";
