@@ -12,7 +12,7 @@ Source files are in the src/ directory.  This contains the .h and .cpp files.
 To compile into a executable, Search.  Run ``` make ``` in the src/ directory.
 Must have 5 arguments, i.e., 
 
-```./Search query_file library_file lowest_reading_level max_reading_level```
+```$ ./Search query_file library_file lowest_reading_level max_reading_level```
 
 Output:
 Document that is most relevant to the query_file
@@ -26,8 +26,9 @@ Automated run script will execute multiple times to ensure validity and gather t
 In either test_cases/small/ or test_cases/large/ run the script to compile and execute program.
 
  ```
- cd test_cases/small/
- ./run
+ $ cd test_cases/small/
+ $ chmod +x run
+ $ ./run
  Running Search ...
   [      49]  [01]  tamingshrew
   [      49]  [02]  tamingshrew
